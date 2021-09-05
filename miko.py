@@ -12,7 +12,7 @@ import subprocess
 import pip
 
 if not os.path.isdir("./lib/git"):
-   pip.main(['install', 'gitpython', '-t', './lib/git'])
+   pip.main(['install', 'GitPython', '-t', './lib/git'])
 sys.path.append("./lib/git")
 import git
 
