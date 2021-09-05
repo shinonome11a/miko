@@ -1,0 +1,6 @@
+.*
+config.json
+.config.json
+lib/git/
+lib/netmiko/
+!.gitignore
