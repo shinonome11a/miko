@@ -243,7 +243,7 @@ class miko:
       os.chdir(self.nw_config_file_path)
       if self.checkGitDiff('*'):
          self.repo.git.fetch('origin', 'main')
-         self.repo.git.reset('--hard', 'origin/master')
+         self.repo.git.reset('--hard', 'origin/main')
          print("*** the repository is reset ***")
       else:
          print("No diff")
