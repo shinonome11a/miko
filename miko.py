@@ -224,7 +224,7 @@ class miko:
          output = net_connect.send_command('show running-config')
 
       f = open(self.nw_config_file_path + host["hostname"], 'w', encoding='UTF-8')
-      # print(output)
+      print(output)
       f.write(output)
       f.close
 
