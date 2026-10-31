@@ -11,14 +11,14 @@ from getpass import getpass
 import subprocess
 import pip
 
-if not os.path.isdir("./lib/git"):
-   pip.main(['install', 'GitPython', '-t', './lib/git'])
-sys.path.append("./lib/git")
+#if not os.path.isdir("./lib/git"):
+#   pip.main(['install', 'GitPython', '-t', './lib/git'])
+#sys.path.append("./lib/git")
 import git
 
-if not os.path.isdir("./lib/netmiko"):
-   pip.main(['install', 'netmiko', '-t', './lib/netmiko'])
-sys.path.append("./lib/netmiko")
+#if not os.path.isdir("./lib/netmiko"):
+#   pip.main(['install', 'netmiko', '-t', './lib/netmiko'])
+#sys.path.append("./lib/netmiko")
 from netmiko import ConnectHandler
 from netmiko.base_connection import BaseConnection
 
@@ -179,6 +179,8 @@ class miko:
          'port': 22,  # optional, defaults to 22
          'secret': self.device_enable,  # optional, defaults to ''
          'verbose': False,  # optional, defaults to False
+         #'ssh_config_file': "~/.ssh/config",
+         'disabled_algorithms': {"Kex":["diffie-hellman-group14-sha1"], "HostKey":["ssh-rsa"]},
       }
 
       # Create a new Paramiko SSH connection object
@@ -246,7 +248,7 @@ class miko:
          self.repo.git.reset('--hard', 'origin/main')
          print("*** the repository is reset ***")
       else:
-         print("No diff")
+         print("No diffs")
       os.chdir('../')
 
    # configファイルをgitにpush
